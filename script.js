@@ -10,14 +10,20 @@ Riusciamo a gestire e mostrare un loader mentre le mail non sono ancora tutte pr
 const app = Vue.createApp({
     data(){
         return{
-            emails: []
+            emails: [],
+            isLoading: false,
         }
     },
     methods:{
         getRandomEmail(){
+             this.isLoading = true;
              axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
              .then( response => { 
                 this.emails.push(response.data.response);
+            }).catch( error =>{
+
+            }).then(()=>{
+                this.isLoading = false;
             })
         }
 
