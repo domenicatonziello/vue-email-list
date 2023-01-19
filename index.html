@@ -14,10 +14,10 @@
 </head>
 <body>
     <div id="root">
-        <div v-if="isLoading"> Is Loading ...</div>
-        <ul v-else-if="!(isLoading) && emails.length === 10" >
+        <ul v-if="emails.length === 10" >
             <li v-for="email in emails"> {{ email }}</li>
         </ul>
+        <div v-else> Is Loading ...</div>
     </div>
 </body>
 </html>
